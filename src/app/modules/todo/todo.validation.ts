@@ -7,5 +7,11 @@ const todoAdd = z.object({
         description: addTodoZodRequiredStringSchema('description')
     })
 })
+const todoUpdate = z.object({
+    body:  z.object({
+        title: addTodoZodRequiredStringSchema('title').optional(),
+        description: addTodoZodRequiredStringSchema('description').optional()
+    })
+})
 
-export const TodoValidation= {todoAdd}
+export const TodoValidation= {todoAdd,todoUpdate}
