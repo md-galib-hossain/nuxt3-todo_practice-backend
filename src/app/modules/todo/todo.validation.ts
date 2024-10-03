@@ -10,7 +10,8 @@ const todoAdd = z.object({
 const todoUpdate = z.object({
     body:  z.object({
         title: addTodoZodRequiredStringSchema('title').optional(),
-        description: addTodoZodRequiredStringSchema('description').optional()
+        description: addTodoZodRequiredStringSchema('description').optional(),
+        completed: z.boolean().optional()
     })
 })
 

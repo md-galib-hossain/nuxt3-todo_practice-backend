@@ -7,6 +7,14 @@ const todoSchema = new Schema<ITodo>(
     {
         title: requiredString,
         description: requiredString,
+        completed: {
+            type: Boolean,
+            default: false
+        },
+        isDeleted: {
+            type: Boolean,
+            default: false
+        }
 
     },
     {

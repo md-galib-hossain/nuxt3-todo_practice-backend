@@ -3,6 +3,7 @@ export interface ITodo {
     title: string;
     description: string;
     isDeleted: boolean;
+    completed: boolean;
     createdAt: Date;
     updatedAt?: Date; 
 }

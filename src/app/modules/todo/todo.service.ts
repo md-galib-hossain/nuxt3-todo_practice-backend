@@ -4,7 +4,7 @@ import { Todo } from "./todo.model";
 import { ITodo } from "./todo.interface";
 
 const getAll = async () => {
-  const result = await Todo.find();
+  const result = await Todo.find({isDeleted: false}).sort({ completed: 1, createdAt: -1 });
   return result;
 };
 
@@ -43,9 +43,9 @@ const update = async (id: string, data: Partial<ITodo>) => {
     throw new AppError(httpStatus.NOT_FOUND, "There is no todo with this id");
   const result = await Todo.findByIdAndUpdate(
     id,
-    {
-      data,
-    },
+
+    data,
+
     {
       new: true,
     }
@@ -58,5 +58,6 @@ export const TodoServices = {
   getSingle,
   create,
   softDelete,
-  permanentDelete,update
+  permanentDelete,
+  update,
 };
